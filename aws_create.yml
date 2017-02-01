@@ -25,6 +25,11 @@
       msg: Please indicate the security_group to use from those available in the security folder
     when: security_group is not defined
 
+  - name: Validate that dc is provided
+    fail:
+      msg: Please indicate the dc to use from those available in the security folder
+    when: dc is not defined
+
   - name: Validate that start is provided
     fail:
       msg: Please indicate the starting node
@@ -35,10 +40,10 @@
       msg: Please indicate the starting node
     when: end is not defined
 
-  - name: Validate that security_group is provided
+  - name: Validate that dc is provided
     fail:
-      msg: Please indicate the security_group to use from those available in the security folder
-    when: security_group is not defined
+      msg: Please indicate the dc number to use f
+    when: dc is not defined
 
   - name: "Load provision profile settings"
     include_vars: "profiles/{{ provision_profile }}.yml"
